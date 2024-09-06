@@ -11,6 +11,11 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeForm {
+
+    String  firstName = "Aslan",
+            lastName="Kardanov",
+            userEmail="Askarda@test.com";
+
     @BeforeAll
     static  void beforeAll(){
         Configuration.browserSize="1928x1080";
@@ -32,9 +37,9 @@ public class PracticeForm {
     @Test
     void practiceFormTest() {
         open("/automation-practice-form");
-        $("#firstName").setValue("Aslan");
-        $("#lastName").setValue("Kardanov");
-        $("#userEmail").setValue("Askarda@test.com");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(userEmail);
         $(".custom-control-label").click();
         $("#userNumber").setValue("89280000000");
         $("#dateOfBirthInput").click();
