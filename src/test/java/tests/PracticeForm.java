@@ -1,21 +1,32 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static tests.TestDate.*;
 
 public class PracticeForm {
 
-    String  firstName = "Aslan",
-            lastName="Kardanov",
-            userEmail="Askarda@test.com";
+   /* String firstName = "Aslan",
+    lastName="Kardanov",
+    userEmail="Askarda@test.com";*/
 
+  /*  String  firstName,
+            lastName,
+            userEmail;
+    */
+   /* @BeforeEach
+    void prepareTestDate(){
+        firstName = "Aslan";
+                lastName="Kardanov";
+                userEmail="Askarda@test.com";
+    }
+*/
     @BeforeAll
     static  void beforeAll(){
         Configuration.browserSize="1928x1080";
