@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -37,9 +38,14 @@ public class PracticFormFakerTest {
     @Test
     void practiceFormTest() {
 
-        String firstName = "Aslan",
-                lastName = "Kardanov",
-                userEmail = "Askarda@test.com";
+        Faker faker = new Faker();
+
+
+        String firstName = faker.name().firstName(); // Emory
+        String lastName = faker.name().lastName(); // Barton
+        String userEmail = faker.internet().emailAddress();
+
+        String streetAddress = faker.address().streetAddress(); // 60018 Sawayn Brooks Suite 449
         open("/automation-practice-form");
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
@@ -52,7 +58,7 @@ public class PracticFormFakerTest {
         $("#hobbiesWrapper").$(byText("Sports")).click();
         File file = new File("src/test/resources/Toka.png");
         $("#uploadPicture").uploadFile(file);
-        $("#currentAddress").setValue("Kabardino_Balkaria, Baksan");
+        $("#currentAddress").setValue(streetAddress);
         // здесь нужен скролл
         $("#submit").scrollTo();
         $("#state").click();
@@ -69,7 +75,7 @@ public class PracticFormFakerTest {
         $("tbody > tr:nth-child(6) > td:nth-child(2)").shouldHave(text("Commerce"));
         $("tbody > tr:nth-child(7) > td:nth-child(2)").shouldHave(text("Sports"));
         $("tbody > tr:nth-child(8) > td:nth-child(2)").shouldHave(text("Toka.png"));
-        $("tbody > tr:nth-child(9) > td:nth-child(2)").shouldHave(text("Kabardino_Balkaria, Baksan"));
+        $("tbody > tr:nth-child(9) > td:nth-child(2)").shouldHave(text(streetAddress));
         $("tbody > tr:nth-child(10) > td:nth-child(2)").shouldHave(text("NCR Noida"));
         $("#closeLargeModal").click();
 
