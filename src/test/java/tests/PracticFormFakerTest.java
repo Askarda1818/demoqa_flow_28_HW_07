@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static tests.TestDate.*;
+import static utils.RandomUtils.getRandomString;
 
 public class PracticFormFakerTest {
 
@@ -41,11 +42,11 @@ public class PracticFormFakerTest {
         Faker faker = new Faker();
 
 
-        String firstName = faker.name().firstName(); // Emory
-        String lastName = faker.name().lastName(); // Barton
-        String userEmail = faker.internet().emailAddress();
-
+        String firstName = getRandomString(10);
+       /* String lastName = faker.name().lastName(); // Barton
+        String userEmail = faker.internet().emailAddress();*/
         String streetAddress = faker.address().streetAddress(); // 60018 Sawayn Brooks Suite 449
+
         open("/automation-practice-form");
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
