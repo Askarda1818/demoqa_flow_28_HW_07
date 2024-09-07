@@ -16,21 +16,6 @@ import static tests.TestDate.*;
 
 public class PracticFormFakerTest {
 
-   /* String firstName = "Aslan",
-    lastName="Kardanov",
-    userEmail="Askarda@test.com";*/
-
-  /*  String  firstName,
-            lastName,
-            userEmail;
-    */
-   /* @BeforeEach
-    void prepareTestDate(){
-        firstName = "Aslan";
-                lastName="Kardanov";
-                userEmail="Askarda@test.com";
-    }
-*/
     @BeforeAll
     static  void beforeAll(){
         Configuration.browserSize="1928x1080";
@@ -51,6 +36,10 @@ public class PracticFormFakerTest {
 
     @Test
     void practiceFormTest() {
+
+        String firstName = "Aslan",
+                lastName = "Kardanov",
+                userEmail = "Askarda@test.com";
         open("/automation-practice-form");
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
